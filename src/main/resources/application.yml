@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: SpringBootUserCRUDAppWithPostgress
+  webflux:
+    base-path: /user-app
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/testdb
+    username: root
+    password: mysecretpassword
+    pool:
+      enabled: true
+      initial-size: 100
+      max-idle-time: 100
+      max-size: 500
+  flyway:
+    url: jdbc:mysql://localhost:3306/testdb
+    locations: classpath:db/migration 
+logging:
+  level:
+    org.flywaydb: DEBUG
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: INFO
+    org.springframework: INFO
+    org.springframework.web: TRACE
+      
